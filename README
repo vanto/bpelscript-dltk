@@ -1,0 +1,6 @@
+Very basic syntax highlighting for BPELscript and most probably also for SimPEL.
+
+It is based on the first attempts at using DLTK.
+
+- Just compile and install the bundle.
+- Open a .bpels file.

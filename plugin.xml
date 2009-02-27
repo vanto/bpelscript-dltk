@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension id="nature" point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="iaas.dltk.bpelscript.internal.BPELScriptNature"/>
+      </runtime>
+   </extension>
+   <extension point="org.eclipse.core.runtime.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            describer="iaas.dltk.bpelscript.internal.BPELScriptContentDescriber"
+            file-extensions="bpels"
+            id="iaas.dltk.bpelscript.content-type"
+            name="BPELscript"
+            priority="high">
+      </content-type>
+   </extension>
+   <extension point="org.eclipse.dltk.core.language">
+      <language
+            class="iaas.dltk.bpelscript.internal.BPELScriptLanguageToolkit"
+            nature="iaas.dltk.bpelscript.nature"
+            priority="0">
+      </language>
+   </extension>
+   <extension point="org.eclipse.dltk.ui.language">
+      <language
+            class="iaas.dltk.bpelscript.internal.BPELScriptUILanguageToolkit"
+            nature="iaas.dltk.bpelscript.nature"
+            priority="0">
+      </language>
+   </extension>
+   <extension point="org.eclipse.ui.newWizards">
+      <wizard
+            category="iaas.dltk.bpelscript.category"
+            class="org.eclipse.dltk.ui.wizards.GenericDLTKProjectWizard:iaas.dltk.bpelscript.nature"
+            icon="icons/etool16/newprj_wiz.gif"
+            id="iaas.dltk.bpelscript.wizard1"
+            name="BPELscript Project"
+            project="true">
+      </wizard>
+      <category
+            id="iaas.dltk.bpelscript.category"
+            name="BPELscript">
+      </category>
+   </extension>
+   <extension point="org.eclipse.dltk.core.sourceParsers">
+      <parserContribution
+            natureId="iaas.dltk.bpelscript.nature">
+         <parser
+               class="iaas.dltk.bpelscript.internal.parser.BPELScriptSourceParserFactory"
+               description="Python Source parser"
+               id="iaas.dltk.bpelscript.sourceParser"
+               name="sourceParser.name"
+               priority="0" />
+      </parserContribution>
+   </extension>
+   <extension point="org.eclipse.dltk.core.sourceElementParsers">
+      <parser
+            class="iaas.dltk.bpelscript.internal.parser.BPELScriptSourceElementParser"
+            nature="iaas.dltk.bpelscript.nature"
+            priority="1">
+      </parser>
+   </extension>
+   
+   <extension point="org.eclipse.ui.editors">
+      <editor class="iaas.dltk.bpelscript.internal.ui.editor.BPELScriptEditor"
+            default="false"
+            icon="icons/obj16/bpelscript_obj.gif"
+            id="iaas.dltk.bpelscript.ui.editor"
+            name="BPELscript Editor">
+         <contentTypeBinding contentTypeId="iaas.dltk.bpelscript.content-type"/>
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="iaas.dltk.bpelscript.internal.BPELScriptUIPreferenceInitializer">
+      </initializer>
+   </extension>
+</plugin>
